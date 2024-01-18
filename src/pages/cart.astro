@@ -1,0 +1,24 @@
+---
+// Imports
+import Layout from "../layouts/Layout.astro";
+import CartList from "../components/Cart/List.svelte";
+---
+
+<Layout title="Cart">
+    <section id="products" class="mt-8 md:px-10">
+        <h2
+            class="font-extrabold text-4xl md:text-6xl ml-2 pl-1.5 text-center tracking-wide pb-2"
+        >
+            Your
+            <span
+                class="text-transparent bg-clip-text bg-gradient-to-tl from-slate-300 via-gray-400 to-zinc-400"
+            >
+                Cart
+            </span>
+        </h2>
+        <div class="md:mx-auto my-3 md:mt-6">
+            <!-- cart details here  -->
+            <CartList />
+        </div>
+    </section>
+</Layout>

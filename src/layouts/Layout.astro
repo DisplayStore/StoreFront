@@ -1,0 +1,107 @@
+---
+// imports
+import { ViewTransitions } from "astro:transitions";
+
+// Components 
+import Navbar from "../components/Navbar.svelte";
+
+// Props Type
+interface Props {
+	title?: string;
+}
+
+// Get Props
+const { title = "todo" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body class="text-white">
+		<header>
+			<Navbar client:load />
+		</header>
+		<main class="py-40">
+			<slot />
+		</main>
+		<div id="dialog" style="display: hidden" class="text-white">Hello world!</div>
+		<style is:global>
+			/* Importing custom font family */
+			@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+
+			/* Whole website */
+			html,
+			body {
+				font-family: "Special Elite", system-ui;
+				background-color: #101011;
+			}
+
+			/* Hide scrollbar for Chrome, Safari and Opera */
+			.no-scrollbar::-webkit-scrollbar {
+				display: none;
+			}
+
+			/* Hide scrollbar for IE, Edge and Firefox */
+			.no-scrollbar {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
+
+			/* Text selection custom highlught  */
+			::selection {
+				color: black;
+				background: whitesmoke;
+			}
+			::-moz-selection {
+				color: black;
+				background: whitesmoke;
+			}
+
+			/* Underline hover animation for links  */
+			.hover-underline-animation {
+				display: inline-block;
+				position: relative;
+			}
+
+			.hover-underline-animation::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				transform: scaleX(0);
+				height: 4px;
+				bottom: 0;
+				left: 0;
+				background-color: #4a56d9;
+				transform-origin: bottom right;
+				transition: transform 0.25s ease-out;
+				top: 25px;
+			}
+
+			.hover-underline-animation:hover::after {
+				transform: scaleX(1);
+				transform-origin: bottom left;
+			}
+
+			/* Hide arrows in input */
+			/* Chrome, Safari, Edge, Opera */
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			/* Firefox */
+			input[type="number"] {
+				-moz-appearance: textfield;
+			}
+		</style>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+---
+// Layout
+import Layout from "../layouts/Layout.astro";
+
+// Components
+import ProductCard from "../components/ProductCard.astro";
+import { SignIn, SignOut } from 'auth-astro/components'
+---
+
+<Layout title="Welcome to Astro.">
+	<section id="hero" class="md:pb-10">
+		<div class="flex justify-center">
+			<div class="h-screen text-center">
+				<h1 class="text-5xl md:text-8xl font-extrabold break-words">
+					Gangster Cups like no other
+				</h1>
+
+				<p
+					class="mt-5 select-none text-slate-200 md:text-4xl font-semibold break-words"
+				>
+					Experience the Top-G feelings with us...
+				</p>
+
+				<img
+					class="mx-auto md:w-1/3 w-full h-auto invert brightness-200 contrast-200"
+					src="https://illustrations.popsy.co/white/new-year-celebration.svg"
+					alt="Landing Illustration"
+					draggable="false"
+					oncontextmenu="return false"
+				/>
+			</div>
+		</div>
+	</section>
+	<hr class="h-px my-10 bg-[#141414] brightness-200 mx-7 border-0" />
+	<section id="products" class="px-4 md:px-10">
+		<h2
+			class="font-extrabold text-4xl md:text-6xl ml-2 pl-1.5 text-center tracking-wide pb-2"
+		>
+			OG
+			<span
+				class="text-transparent bg-clip-text bg-gradient-to-tl from-slate-300 via-gray-400 to-zinc-400"
+			>
+				Cups
+			</span>
+		</h2>
+		<div class="mx-auto my-3 md:mt-6">
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 gap-x-4 w-full mx-2 px-2"
+			>
+			<ProductCard id="1" name="coffie" original_price={623} discount_price={232}/>
+		</section>
+</Layout>

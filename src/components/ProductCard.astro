@@ -1,0 +1,103 @@
+---
+// props
+export interface Props {
+    name: string;
+    category?: string;
+    img?: string;
+    discount_price?: number;
+    original_price: number;
+    id: string;
+}
+const {
+    name = "Product",
+    category,
+    img = "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
+    discount_price,
+    original_price,
+    id,
+} = Astro.props;
+---
+
+<a href={`/product/${id}`}>
+    <div class="grid place-items-center">
+        <div
+            class="group select-none group duration-75 hover:scale-105 md:hover:rotate-[2deg] md:hover:scale-90 transition ease-in-out cursor-pointer flex-shrink-0 m-6 relative overflow-hidden bg-zinc-900 rounded-lg w-full md:w-[79%] shadow-lg group"
+        >
+            <svg
+                class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+                viewBox="0 0 375 283"
+                fill="none"
+                style="opacity: 0.1;"
+            >
+                <rect
+                    x="159.52"
+                    y="175"
+                    width="152"
+                    height="152"
+                    rx="8"
+                    transform="rotate(-45 159.52 175)"
+                    fill="white"></rect>
+                <rect
+                    y="107.48"
+                    width="152"
+                    height="152"
+                    rx="8"
+                    transform="rotate(-45 0 107.48)"
+                    fill="white"></rect>
+            </svg>
+            <div
+                class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform"
+            >
+                <div
+                    class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                    style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
+                >
+                </div>
+                <img
+                    draggable="false"
+                    class="relative w-auto h-full"
+                    src={img}
+                    alt=""
+                />
+            </div>
+            <div class="relative text-white px-6 pb-6 mt-6">
+                {
+                    category && (
+                        <span class="break-words block opacity-75 -mb-1 group-hover:-ml-1 md:group-hover:-ml-1.5 transition-all ease-in-out delay-0">
+                            {category}
+                        </span>
+                    )
+                }
+                <div class="flex justify-between">
+                    <div>
+                        <span
+                            class="block text-xl tracking-wider group-hover:underline group-hover:scale-110 font-bold transition ease-in-out delay-0"
+                            >{name}</span
+                        >
+                    </div>
+                    <div class="flex items-center">
+                        {
+                            discount_price && (
+                                <>
+                                    <del class="block font-medium text-white text-md md:text-xl tracking-wide pr-1 md:pr-4 line-through">
+                                        ${original_price}
+                                    </del>
+                                    <span class="font-extrabold py-1 items-center leading-none md:group-hover:scale-125 transition-transform delay-0 ease-in-out md:scale-125 shadow block bg-white rounded-2xl text-black text-lg px-3">
+                                        ${discount_price}
+                                    </span>
+                                </>
+                            )
+                        }
+                        {
+                            !discount_price && (
+                                <span class="font-extrabold py-1 items-center leading-none md:group-hover:scale-125 transition-transform delay-0 ease-in-out md:scale-125 shadow block bg-white rounded-2xl text-black text-lg px-3">
+                                    ${original_price}
+                                </span>
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
