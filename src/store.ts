@@ -1,5 +1,5 @@
-// imports 
-import { atom } from 'nanostores';
+// imports
+import { atom } from "nanostores";
 
 /**
  * Website loader to be shown or not

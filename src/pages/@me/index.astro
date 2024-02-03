@@ -1,9 +1,10 @@
 ---
 // Imports
 import Layout from "../../layouts/Layout.astro";
+import Account from "../../components/User/Account.svelte";
 ---
 
-<Layout title="Cart">
+<Layout title="Your Account">
     <section id="products" class="mt-8 px-4 md:px-10">
         <h2
             class="font-extrabold text-4xl md:text-6xl ml-2 pl-1.5 text-center tracking-wide pb-2"
@@ -16,7 +17,7 @@ import Layout from "../../layouts/Layout.astro";
             </span>
         </h2>
         <div class="mx-auto my-3 md:mt-6">
-         
+            <Account client:load />
         </div>
     </section>
 </Layout>

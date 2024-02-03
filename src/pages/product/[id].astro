@@ -1,6 +1,7 @@
 ---
-// Layout
+// Imports
 import Layout from "../../layouts/Layout.astro";
+import BuyOrCart from "../../components/Shop/BuyOrCart.svelte"
 
 // Dynamic Page
 export const prerender = false;
@@ -11,60 +12,20 @@ const imgs = [
     "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
     "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
     "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-    "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png",
-].slice(0, 2);
+].slice(0, 4); // MAX 4 IMAGES
 const current_img =
     "https://i.ibb.co/jw8W3T2/hmlv-mug-006-removebg-preview.png";
 ---
 
-<Layout title="product">
-    <div class="px-4 md:px-7 w-full flex flex-col lg:flex-row">
+<Layout title="Gyro Mug Title">
+    <div class="px-4 md:px-7 w-full h-fit flex flex-col lg:flex-row">
         <!-- Pics -->
         <section
-            class="mb-2 sticky h-fit basis-1/3 flex-col gap-8 mt-16 sm:flex sm:flex-row sm:gap-4 sm:h-full sm:mt-24 sm:mx-2 md:gap-8 md:mx-4 lg:flex-col lg:mx-0 lg:mt-36"
+            class="mb-2 h-fit basis-1/3 flex-col gap-8 mt-16 md:flex md:flex-col sm:gap-4 sm:h-full sm:mt-24 sm:mx-2 md:gap-8 md:mx-4 lg:flex-col lg:mx-0 lg:mt-36"
         >
             <picture
-                class="relative flex items-center bg-orange sm:bg-transparent"
+                class="relative flex items-center"
             >
-                <button
-                    class="w-10 h-10 flex items-center justify-center pr-1 rounded-full absolute left-6 z-10 sm:hidden"
-                    id="previous-mobile"
-                >
-                    <svg
-                        width="12"
-                        height="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="previous-mobile"
-                    >
-                        <path
-                            d="M11 1 3 9l8 8"
-                            stroke="#1D2026"
-                            stroke-width="3"
-                            fill="none"
-                            fill-rule="evenodd"
-                            id="previous-mobile"></path>
-                    </svg>
-                </button>
                 <img
                     src={current_img}
                     alt="Display Image"
@@ -73,27 +34,7 @@ const current_img =
                     draggable="false"
                     oncontextmenu="return false"
                 />
-                <button
-                    class="w-10 h-10 flex items-center justify-center pl-1 rounded-full absolute right-6 z-10 sm:hidden"
-                    id="next-mobile"
-                >
-                    <svg
-                        width="13"
-                        height="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="next-mobile"
-                    >
-                        <path
-                            d="m2 1 8 8-8 8"
-                            stroke="#1D2026"
-                            stroke-width="3"
-                            fill="none"
-                            fill-rule="evenodd"
-                            id="next-mobile"></path>
-                    </svg>
-                </button>
             </picture>
-
             {
                 imgs.length > 1 && (
                     <div class="no-scrollbar mx-auto flex flex-row max-w-[70%] overflow-x-scroll gap-4 h-full md:gap-5">
@@ -152,41 +93,7 @@ const current_img =
                 </p>
             </div>
 
-            <div class="flex flex-col c gap-5 mb-16 sm:flex-row lg:mb-0">
-                <div
-                    class="w-full col-span-2 text-sm py-2 flex items-center justify-between font-bold relatives sm:w-80"
-                >
-                    <button
-                        type="button"
-                        class="w-10 shadow-md rounded-full h-10 aspect-square leading-none text-black bg-white text-6xl transition hover:opacity-75"
-                    >
-                        &minus;
-                    </button>
-                    <input
-                        type="number"
-                        id="Quantity"
-                        value="1"
-                        min="1"
-                        required
-                        placeholder="Quantity"
-                        class="shadow-md focus:border-white [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none h-10 w-full mx-2 bg-white/10 rounded border-gray-200 text-center sm:text-sm"
-                    />
-                    <button
-                        type="button"
-                        class="w-10 shadow-md rounded-full h-10 aspect-square leading-none text-black bg-white text-6xl transition hover:opacity-75"
-                    >
-                        &plus;
-                    </button>
-                </div>
-                <button
-                    class="w-full bg-white text-black h-auto py-2 flex text-xl text-center items-center justify-center -mb-1 rounded-lg font-extrabold shadow-md hover:brightness-125 transition select-none"
-                    id="add-cart"
-                    ems-center
-                    justify-center
-                >
-                    Add to cart
-                </button>
-            </div>
+            <BuyOrCart client:load id={"todo"} />
         </section>
     </div>
 </Layout>

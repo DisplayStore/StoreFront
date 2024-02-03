@@ -4,8 +4,8 @@
 
   // reactive form state
   let form = {
-    email: "a@aa.com",
-    password: "axxxxxxxxxxxxxxx"
+    email: "",
+    password: ""
   };
 
   // registering user
